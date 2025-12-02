@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrique Farez | IA, Sector Público y Media Intelligence</title>
+    <meta name="description" content="Transformando el Sector Público con Inteligencia Artificial y Media Intelligence. Consultoría estratégica y desarrollo tecnológico.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;700&display=swap" rel="stylesheet">
+
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1132d4',
+                            dark: '#0a1e80',
+                        },
+                        accent: {
+                            DEFAULT: '#00BFFF',
+                            hover: '#009acd',
+                        },
+                        dark: {
+                            bg: '#101322',
+                            card: '#1A1D2C',
+                            border: '#2C2F3D',
+                        },
+                        light: {
+                            bg: '#F8F9FA',
+                            text: '#1A2B48',
+                            muted: '#6C757D',
+                        },
+                        // Stitch specific colors to ensure perfect design match
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                        "text-light": "#333333",
+                        "text-dark": "#E0E0E0",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1A1D2E",
+                        "accent-cyan": "#00BFFF",
+                        "primary-dark-custom": "#0A192F",
+                        "background-soft": "#F0F2F5",
+                    },
+                    fontFamily: {
+                        sans: ['Public Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-light-bg text-light-text flex flex-col min-h-screen">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-10 h-20 flex items-center justify-between relative">
+            <!-- Logo -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-3xl">hub</span>
+                </div>
+                <span class="font-display font-bold text-xl tracking-tight text-slate-900">Enrique Farez</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#inicio" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Inicio</a>
+                <a href="#sobre-mi" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Sobre mí</a>
+                <a href="#areas-especializacion" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Especialidades</a>
+                <a href="#proyectos" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Proyectos</a>
+                <a href="#blog" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Blog</a>
+                <a href="#en-medios" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">En Medios</a>
+                <a href="#conferencias" class="text-sm font-medium text-slate-600 hover:text-primary transition-colors">Conferencias</a>
+            </nav>
+
+            <!-- CTA Button + Language Switcher -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contacto" class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-primary rounded-lg hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20">
+                    Hablemos
+                </a>
+
+                <!-- Selector de idioma -->
+                <div class="flex items-center gap-2 text-xs font-medium text-slate-500">
+                    <span>Idioma:</span>
+                    <a href="#inicio" class="px-2 py-1 rounded border border-primary text-primary">
+                        ES
+                    </a>
+                    <a href="#inicio" class="px-2 py-1 rounded border border-slate-300 hover:border-primary hover:text-primary transition-colors">
+                        EN
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-primary focus:outline-none" aria-label="Menu">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-20 shadow-lg py-4 px-6 flex flex-col gap-4 origin-top animate-fade-in-down">
+            <a href="#inicio" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">Inicio</a>
+            <a href="#sobre-mi" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">Sobre mí</a>
+            <a href="#areas-especializacion" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">Especialidades</a>
+            <a href="#proyectos" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">Proyectos</a>
+            <a href="#blog" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">Blog</a>
+            <a href="#en-medios" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">En Medios</a>
+            <a href="#conferencias" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">Conferencias</a>
+            <a href="#contacto" class="text-base font-bold text-primary block py-2">Hablemos</a>
+            <a href="#inicio" class="text-base font-medium text-slate-700 hover:text-primary block py-2 border-b border-gray-50">
+                Español (ES)
+            </a>
+            <a href="#inicio" class="text-base font-medium text-slate-700 hover:text-primary block py-2">
+                English (EN)
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- HERO SECTION -->
+        <section id="inicio" class="relative bg-dark-bg text-white pt-24 pb-32 overflow-hidden scroll-mt-20">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-dark-bg/90 z-10 hero-gradient"></div>
+                <img src="./assets/hero-bg.jpg" alt="Fondo abstracto de red neuronal y datos" class="w-full h-full object-cover opacity-40 mix-blend-overlay">
+            </div>
+
+            <div class="container mx-auto px-4 md:px-10 relative z-20">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                        </span>
+                        Innovación en Sector Público
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-8 leading-[1.1]">
+                        Transformando el Sector Público con <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Inteligencia Artificial</span> y Media Intelligence
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                        Liderando la innovación en la intersección de la tecnología, los datos y la estrategia gubernamental para construir un futuro más eficiente y transparente.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#proyectos" class="w-full sm:w-auto px-8 py-4 bg-accent text-dark-bg font-bold rounded-lg hover:bg-white transition-colors">
+                            Explorar mi trabajo
+                        </a>
+                        <a href="#sobre-mi" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-gray-600 text-white font-medium rounded-lg hover:border-white hover:bg-white/5 transition-colors">
+                            Conocer mi trayectoria
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Absolute decorative element bottom -->
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-light-bg to-transparent z-20"></div>
+        </section>
+
+        <!-- METRICS SECTION -->
+        <section class="py-12 -mt-16 relative z-30 px-4 md:px-10">
+            <div class="container mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+
+                        <div class="text-center pt-4 md:pt-0">
+                            <p class="text-4xl md:text-5xl font-display font-bold text-primary mb-2">30</p>
+                            <p class="text-sm text-slate-500 font-medium uppercase tracking-wider">Años de experiencia</p>
+                        </div>
+
+                        <div class="text-center pt-4 md:pt-0 pl-0 md:pl-8">
+                            <p class="text-4xl md:text-5xl font-display font-bold text-primary mb-2">1M+</p>
+                            <p class="text-sm text-slate-500 font-medium uppercase tracking-wider">Licitaciones</p>
+                        </div>
+
+                        <div class="text-center pt-8 md:pt-0 pl-0 md:pl-8">
+                            <p class="text-4xl md:text-5xl font-display font-bold text-primary mb-2">4</p>
+                            <p class="text-sm text-slate-500 font-medium uppercase tracking-wider">Empresas</p>
+                        </div>
+
+                        <div class="text-center pt-8 md:pt-0 pl-0 md:pl-8">
+                            <p class="text-4xl md:text-5xl font-display font-bold text-primary mb-2">100+</p>
+                            <p class="text-sm text-slate-500 font-medium uppercase tracking-wider">Clientes</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- OLD SPECIALTIES SECTION (Kept as requested, but might be redundant with the new one) -->
+        <section id="especialidadesHero" class="py-20 md:py-28 container mx-auto px-4 md:px-10 scroll-mt-20 border-b border-gray-200">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Especialidades</h2>
+                    <p class="text-lg text-slate-600">
+                        Áreas clave donde aplico inteligencia artificial, datos y estrategia para transformar organizaciones públicas y privadas.
+                    </p>
+                </div>
+                <a href="#areas-especializacion" class="text-primary font-bold hover:text-primary-dark flex items-center gap-1 group">
+                    Ver detalle
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+
+                <!-- Item 1 -->
+                <div class="group bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row gap-6 md:items-center">
+                    <div class="w-16 h-16 rounded-full bg-blue-50 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">account_balance</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">IA para Gobiernos</h3>
+                        <p class="text-slate-600">
+                            Optimización de servicios públicos, automatización administrativa y apoyo a la toma de decisiones mediante IA ética y explicable.
+                        </p>
+                    </div>
+                    <div class="hidden md:block text-slate-300 group-hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl">chevron_right</span>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row gap-6 md:items-center">
+                    <div class="w-16 h-16 rounded-full bg-blue-50 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">monitoring</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Media Intelligence</h3>
+                        <p class="text-slate-600">
+                            Análisis avanzado de medios y redes para detectar tendencias, medir reputación y ofrecer insights estratégicos en tiempo real.
+                        </p>
+                    </div>
+                    <div class="hidden md:block text-slate-300 group-hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl">chevron_right</span>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row gap-6 md:items-center">
+                    <div class="w-16 h-16 rounded-full bg-blue-50 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">database</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Estrategia de Datos</h3>
+                        <p class="text-slate-600">
+                            Diseño de arquitecturas, gobernanza y modelos de datos para maximizar valor, interoperabilidad y soberanía informativa.
+                        </p>
+                    </div>
+                    <div class="hidden md:block text-slate-300 group-hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl">chevron_right</span>
+                    </div>
+                </div>
+
+                <!-- Item 4 (nuevo) -->
+                <div class="group bg-white p-8 rounded-xl border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row gap-6 md:items-center">
+                    <div class="w-16 h-16 rounded-full bg-blue-50 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Innovación Tecnológica</h3>
+                        <p class="text-slate-600">
+                            Exploración y aplicación de tecnologías emergentes (IA generativa, automatización, interoperabilidad) para resolver retos de alto impacto.
+                        </p>
+                    </div>
+                    <div class="hidden md:block text-slate-300 group-hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl">chevron_right</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ECOSYSTEM SECTION (Proyectos) - Reordered to be AFTER the new section -->
+        <section id="proyectosHero" class="py-20 bg-slate-50 border-t border-gray-200 scroll-mt-20">
+            <div class="container mx-auto px-4 md:px-10">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Mi Ecosistema de Empresas</h2>
+                    <p class="text-lg text-slate-600">
+                        Un conjunto de organizaciones que he fundado o lidero, enfocadas en la inteligencia artificial, los datos y la innovación pública.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- MMI Analytics -->
+                    <article class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-14 h-14 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600">
+                                <span class="material-symbols-outlined text-3xl">domain</span>
+                            </div>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase rounded-full">CEO · Fundador</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">MMI Analytics</h3>
+                        <p class="text-slate-600 text-sm mb-6">
+                            Seguimiento de medios en Canarias desde 1993. Ahora un ecosistema de agentes con IA que impulsan y miden la comunicación pública y corporativa.
+                        </p>
+                        <a href="https://mmianalytics.es/" target="_blank" class="text-primary font-bold text-sm hover:underline">Visitar sitio web</a>
+                    </article>
+
+                    <!-- Equal Tenders -->
+                    <article class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-14 h-14 bg-cyan-50 rounded-lg flex items-center justify-center text-cyan-600">
+                                <span class="material-symbols-outlined text-3xl">analytics</span>
+                            </div>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase rounded-full">Cofundador</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Equal Tenders</h3>
+                        <p class="text-slate-600 text-sm mb-6">
+                            Agentes inteligentes que generan y planifican pliegos para administraciones públicas. Innovación aplicada a todo el ciclo de contratación pública.
+                        </p>
+                        <a href="https://www.equaltenders.com/" target="_blank" class="text-primary font-bold text-sm hover:underline">Visitar sitio web</a>
+                    </article>
+
+                    <!-- Fundación Emprende -->
+                    <article class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+                                <span class="material-symbols-outlined text-3xl">share</span>
+                            </div>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase rounded-full">Presidente</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Fundación Emprende</h3>
+                        <p class="text-slate-600 text-sm mb-6">
+                            Impulsamos la adopción de inteligencia artificial en las administraciones públicas para mejorar servicios, eficiencia y transparencia institucional.
+                        </p>
+                        <a href="https://fundacionemprende.org/" target="_blank" class="text-primary font-bold text-sm hover:underline">Visitar sitio web</a>
+                    </article>
+
+                    <!-- Grupo ICC -->
+                    <article class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="w-14 h-14 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600">
+                                <span class="material-symbols-outlined text-3xl">tips_and_updates</span>
+                            </div>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase rounded-full">CEO</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Grupo ICC</h3>
+                        <p class="text-slate-600 text-sm mb-6">
+                            Consultora integral que une estrategia, innovación y tecnología. Ofrecemos capacidades de IA, automatización y desarrollo de soluciones avanzadas.
+                        </p>
+                        <a href="https://grupoicc.es/" target="_blank" class="text-primary font-bold text-sm hover:underline">Visitar sitio web</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- LATEST ARTICLES (Blog) -->
+        <section id="blog" class="py-20 container mx-auto px-4 md:px-10 scroll-mt-20">
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="text-3xl font-display font-bold text-slate-900">Últimos Artículos</h2>
+                <a href="#blog" class="hidden md:inline-block text-sm font-bold text-primary hover:text-primary-dark">Ver todo el blog</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200 aspect-video relative">
+                        <!-- Placeholder o Imagen Real -->
+                        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&q=80&w=800" alt="IA en política pública" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                        <span class="text-primary font-bold">Opinión</span>
+                        <span>•</span>
+                        <span>12 Oct, 2023</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">El impacto de la IA Generativa en los ayuntamientos</h3>
+                    <p class="text-sm text-slate-600 line-clamp-3">
+                        Cómo los modelos LLM están cambiando la forma en que los ciudadanos interactúan con la administración local y qué riesgos debemos mitigar.
+                    </p>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200 aspect-video relative">
+                         <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800" alt="Datos abiertos" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                         <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                        <span class="text-primary font-bold">Tecnología</span>
+                        <span>•</span>
+                        <span>28 Sep, 2023</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Soberanía del dato en la nube europea</h3>
+                    <p class="text-sm text-slate-600 line-clamp-3">
+                        Claves para entender las nuevas regulaciones de la UE y cómo afectan a las infraestructuras críticas del estado.
+                    </p>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-lg mb-4 bg-gray-200 aspect-video relative">
+                         <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&q=80&w=800" alt="Conferencia GovTech" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                         <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                        <span class="text-primary font-bold">Eventos</span>
+                        <span>•</span>
+                        <span>15 Sep, 2023</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Resumen del GovTech Summit 2023</h3>
+                    <p class="text-sm text-slate-600 line-clamp-3">
+                        Principales conclusiones de mi ponencia sobre la ética algorítmica y la transparencia en la contratación pública.
+                    </p>
+                </article>
+            </div>
+            
+            <div class="mt-8 md:hidden text-center">
+                 <a href="#blog" class="inline-block text-sm font-bold text-primary hover:text-primary-dark">Ver todo el blog</a>
+            </div>
+        </section>
+        <!-- CTA CONTACT -->
+        <section id="contacto" class="py-24 bg-dark-bg relative overflow-hidden px-4 md:px-10 scroll-mt-20">
+            <!-- Decorative circle -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+
+            <div class="container mx-auto relative z-10 text-center max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+                    ¿Listo para transformar tu organización?
+                </h2>
+                <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                    Hablemos sobre cómo la inteligencia artificial y una estrategia de datos sólida pueden impulsar tu próximo gran proyecto gubernamental o corporativo.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="mailto:contacto@enriquefarez.com" class="px-8 py-4 bg-accent text-dark-bg font-bold rounded-lg hover:bg-white transition-colors shadow-lg shadow-accent/20">
+                        Hablemos de tu proyecto
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-dark-card border border-gray-700 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                        <span>Contactar por LinkedIn</span>
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- SOBRE MÍ SECTION (Moved UP as requested: Before the new section and Proyectos) -->
+        <section id="sobre-mi" class="py-20 md:py-24 bg-slate-50 scroll-mt-20 border-b border-gray-200">
+            <div class="container mx-auto px-4 md:px-10">
+                <!-- Bio Content -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-16">
+                    
+                    <!-- Profile Image & Quick Info -->
+                    <div class="md:col-span-1">
+                        <div class="bg-gradient-to-br from-primary to-accent p-1 rounded-2xl shadow-xl shadow-primary/20 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                            <div class="bg-white rounded-xl overflow-hidden aspect-square relative">
+                                <img src="https://i.ytimg.com/vi/IipT_qlkbg0/maxresdefault.jpg" alt="Enrique Farez" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-slate-200 -z-10 flex items-center justify-center text-slate-400">
+                                    <span class="material-symbols-outlined text-6xl">person</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center md:text-left">
+                            <h2 class="text-2xl font-bold text-slate-900">Enrique Fárez</h2>
+                            <p class="text-primary font-medium">Piloto de IA · Sector Público · Media Intelligence</p>
+                        </div>
+                    </div>
+
+                    <!-- Bio Text -->
+                    <div class="md:col-span-2 space-y-6 text-lg text-slate-600 leading-relaxed">
+                        <h2 class="text-3xl font-display font-bold text-slate-900 mb-4">Sobre Mí</h2>
+
+                        <p class="text-xl text-slate-800 font-medium">
+                            Llevo 30 años analizando medios en Canarias y ahora piloto soluciones de inteligencia artificial para transformar cómo administraciones públicas y organizaciones comunican, licitan y toman decisiones.
+                        </p>
+
+                        <p>
+                            Mi trayectoria comenzó con el seguimiento mediático tradicional, pero con el tiempo fui construyendo un ecosistema tecnológico que hoy une datos, IA y comunicación pública. He trabajado con instituciones, empresas y equipos que necesitan interpretar mejor su entorno informativo y operar con más agilidad.
+                        </p>
+
+                        <p>
+                            Actualmente lidero cuatro organizaciones conectadas —MMI Analytics, Equal Tenders, Fundación Emprende y Grupo ICC— desde donde desarrollo agentes de IA, sistemas de media intelligence, automatización de procesos y modelos que ayudan al sector público a modernizarse de forma ética, eficiente y sostenible.
+                        </p>
+
+                        <p>
+                            Creo en una tecnología cercana a las personas: clara, útil y diseñada para resolver problemas reales. Mi misión es que la IA sea una herramienta accesible para las administraciones y que impulse decisiones mejor informadas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Content -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h3 class="text-2xl md:text-3xl font-display font-bold text-slate-900">Trayectoria Profesional</h3>
+                    </div>
+
+                    <div class="relative border-l-2 border-slate-200 ml-4 md:ml-6 space-y-12">
+
+                        <!-- MMI Analytics -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute -left-[9px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-sm"></div>
+                            <span class="text-sm font-bold text-primary tracking-wider uppercase">1993 – Presente</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1">CEO y Fundador – MMI Analytics</h3>
+                            <p class="mt-3 text-slate-600 leading-relaxed">
+                                Más de 30 años construyendo la plataforma de media intelligence líder en Canarias. Evolución de un servicio tradicional a un ecosistema de agentes con IA.
+                            </p>
+                        </div>
+
+                        <!-- Equal Tenders -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute -left-[9px] top-0 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-sm"></div>
+                            <span class="text-sm font-bold text-primary tracking-wider uppercase">2022 – Presente</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1">Cofundador – Equal Tenders</h3>
+                            <p class="mt-3 text-slate-600 leading-relaxed">
+                                Desarrollo de agentes que redactan y planifican pliegos para administraciones públicas. Innovación aplicada a todo el ciclo de contratación pública.
+                            </p>
+                        </div>
+
+                        <!-- Fundación Emprende -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute -left-[9px] top-0 w-5 h-5 bg-accent rounded-full border-4 border-white shadow-sm"></div>
+                            <span class="text-sm font-bold text-accent tracking-wider uppercase">2020 – Presente</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1">Presidente – Fundación Emprende</h3>
+                            <p class="mt-3 text-slate-600 leading-relaxed">
+                                Impulso de iniciativas para modernizar administraciones públicas mediante inteligencia artificial, automatización y cultura digital.
+                            </p>
+                        </div>
+
+                        <!-- Grupo ICC -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute -left-[9px] top-0 w-5 h-5 bg-slate-300 rounded-full border-4 border-white shadow-sm"></div>
+                            <span class="text-sm font-bold text-slate-500 tracking-wider uppercase">2021 – Presente</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1">CEO – Grupo ICC</h3>
+                            <p class="mt-3 text-slate-600 leading-relaxed">
+                                Consultora integral donde aunamos estrategia, innovación y tecnología. Desarrollo de soluciones de IA y automatización para organizaciones públicas y privadas.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- NEW STITCH SECTION (Inserted here: After Sobre Mí, Before Proyectos) -->
+        <section id="areas-especializacion" class="font-display bg-background-light dark:bg-background-dark py-16 scroll-mt-20">
+            <div class="container mx-auto px-4 md:px-10 flex flex-col justify-center">
+                <div class="flex flex-col max-w-[960px] mx-auto w-full">
+                    
+                    <div class="flex flex-wrap justify-between gap-4 p-4 text-center">
+                        <div class="flex w-full flex-col items-center gap-3">
+                            <p class="text-base font-black dark:text-white text-4xl leading-tight tracking-[-0.033em]">Áreas de Especialización</p>
+                            <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal max-w-2xl">Explorando la intersección de la inteligencia artificial, los datos y la estrategia para transformar organizaciones públicas y privadas.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-16 px-4 mt-8">
+                        <!-- Card 1 -->
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 rounded-lg">
+                            <div class="w-full md:w-5/12 bg-center bg-no-repeat aspect-square md:aspect-[4/3] bg-cover rounded-xl shadow-lg" data-alt="Abstract visualization of data streams and network connections" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMyYnx9PZLkVNshElhvC2TtGQ1MEd5EPQdMyEYglfkV8rlCQPbPee2G2ivKtosu1RFkR14SOFDKEOtxrYL_j7JR4tSofSDC2x9rKSOLoyFoyiDSZLxNNQ2ssnmtgYU38TwKwT16M2PjlX6h83T9heY2dpsy8mfvbh0VBAM2ZFqY2ppv2ciGUmj0UePW9qxui3Z_Ufii1dSDQJ82z_YwYRiuXz_DMJhuZAjV0xHlgZSqqdfPSnh2dluiJcrDLVdPN9mHndVPH_oaZLT");'></div>
+                            <div class="flex flex-1 flex-col gap-4">
+                                <h3 class="text-base dark:text-white text-2xl font-bold leading-tight">Media Intelligence con IA</h3>
+                                <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal">Aplicamos inteligencia artificial para el análisis avanzado de medios, transformando datos en decisiones estratégicas. Monitoreamos en tiempo real, analizamos sentimientos y detectamos tendencias emergentes para ofrecer una visión completa del panorama mediático.</p>
+                                <ul class="space-y-2 mt-2">
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Monitorización y análisis de medios en tiempo real.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Análisis de sentimiento y detección de tendencias emergentes.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Generación de insights para reputación de marca y estrategia.</span></li>
+                                </ul>
+                                <button class="flex mt-4 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-row-reverse bg-primary/20 dark:bg-accent/20 text-primary dark:text-accent text-sm font-bold leading-normal w-fit hover:bg-primary/30 dark:hover:bg-accent/30 transition-colors">
+                                    <span class="truncate">Ver caso de estudio</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12 rounded-lg">
+                            <div class="w-full md:w-5/12 bg-center bg-no-repeat aspect-square md:aspect-[4/3] bg-cover rounded-xl shadow-lg" data-alt="Stylized graphic of automated document processing and classification" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3ZrJU2N5K-Jf3HKNGFI9gjARlkYN_VxuI2PWxASwUi3TRUuNbeXcYu8DYnTZE9h0aAUxpZr6okJGEomKpOwQyZqS_LqwZCaNcx5NDDpRvkLlvGc2U5KkhZG99rXeXgRraYxH9d3hZqIBGeDydfL30qXjRxN1tgmDdV5xpFFt5oQMkSeGT7K1ysp9zCPUb-iKcaO-1vW539pzur4IGAvGqEm8VgUfVRZKHtvZInzxNUrMCMdU8B159gXeAKrnuv19hizACGRssuYKN");'></div>
+                            <div class="flex flex-1 flex-col gap-4">
+                                <h3 class="text-base dark:text-white text-2xl font-bold leading-tight">Automatización de Licitaciones Públicas</h3>
+                                <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal">Optimizamos la búsqueda y gestión de oportunidades en el sector público mediante IA. Nuestro sistema realiza clasificación inteligente, análisis predictivo de éxito y genera alertas personalizadas para maximizar las posibilidades de adjudicación.</p>
+                                <ul class="space-y-2 mt-2">
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Clasificación inteligente y automática de oportunidades.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Análisis predictivo de probabilidad de éxito.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Generación de alertas personalizadas y seguimiento proactivo.</span></li>
+                                </ul>
+                                <button class="flex mt-4 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-row-reverse bg-primary/20 dark:bg-accent/20 text-primary dark:text-accent text-sm font-bold leading-normal w-fit hover:bg-primary/30 dark:hover:bg-accent/30 transition-colors">
+                                    <span class="truncate">Ver caso de estudio</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 rounded-lg">
+                            <div class="w-full md:w-5/12 bg-center bg-no-repeat aspect-square md:aspect-[4/3] bg-cover rounded-xl shadow-lg" data-alt="Modern government building with digital overlay representing technological transformation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAoJ8D9KCSefzF7bXMIEur_KuL3-0WxHTO1CgbIllRV7f2fNQjPtILaJurvdJhvtZteSszhDsyF9h9kxe-KjlX9cwLUkTO0n2VsWZxeuQYH5DYKVnJ0Ecg6vvEz7ZyBA3zpGHtQZ3UK2XrHw0Gy3unAx8DNc93b1Po2SJFErfQhWJB-k1MlwQEJxDwyMnaWy5viT5TFjooI79drH0HRvmVkCnJrMmavt60kP5km_mejHMrBEnUP67AXHchI6uivMR4Bdwk9kE_V7q0g");'></div>
+                            <div class="flex flex-1 flex-col gap-4">
+                                <h3 class="text-base dark:text-white text-2xl font-bold leading-tight">Transformación del Sector Público</h3>
+                                <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal">Impulsamos la modernización y eficiencia de los servicios públicos con IA. Implementamos soluciones para la optimización de procesos, chatbots de atención ciudadana y análisis de datos para el diseño de políticas públicas más efectivas.</p>
+                                <ul class="space-y-2 mt-2">
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Optimización de procesos y servicios ciudadanos.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Desarrollo de chatbots para atención 24/7.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Análisis de datos para el diseño de políticas públicas.</span></li>
+                                </ul>
+                                <button class="flex mt-4 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-row-reverse bg-primary/20 dark:bg-accent/20 text-primary dark:text-accent text-sm font-bold leading-normal w-fit hover:bg-primary/30 dark:hover:bg-accent/30 transition-colors">
+                                    <span class="truncate">Ver caso de estudio</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12 rounded-lg">
+                            <div class="w-full md:w-5/12 bg-center bg-no-repeat aspect-square md:aspect-[4/3] bg-cover rounded-xl shadow-lg" data-alt="Graphic representing audience segmentation and targeted political messaging" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXlDiYCqdU7fFSaVu3kR5uwXH5ifM4r2u8O3P8TdwfH4_Vusgtlu9FA5JPT9-7rZ8klpQfXrZc2BxMlTnCpW5UmdUZJp4XfNr_l2StcO_9Rptq5PvBkbPDqoc6AHutfOTJdQrqo3n8p6U715OaWWgadY5rB_NvFaQvD5rJ1rFjdgHYv5D59D8ofJTzniX8ov4yvXIF1UWmg-Bwja1aM4_XxGMOzkSESJ06-uQM-FB500zsmNLkD7zzMJJ7SpgUoXxUxcKWmSfiYkxE");'></div>
+                            <div class="flex flex-1 flex-col gap-4">
+                                <h3 class="text-base dark:text-white text-2xl font-bold leading-tight">IA y Marketing Político</h3>
+                                <p class="text-text-light dark:text-text-dark text-base font-normal leading-normal">Aplicamos la inteligencia artificial para potenciar campañas y estrategias de comunicación política. Desde la identificación de audiencias clave hasta el análisis del discurso, nuestras herramientas ofrecen una ventaja competitiva en el complejo escenario político actual.</p>
+                                <ul class="space-y-2 mt-2">
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Microsegmentación de audiencias para mensajes efectivos.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Análisis del discurso de adversarios y medios.</span></li>
+                                    <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-xl mt-0.5">check_circle</span><span class="text-text-light dark:text-text-dark flex-1">Predicción de corrientes de opinión y tendencias electorales.</span></li>
+                                </ul>
+                                <button class="flex mt-4 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-row-reverse bg-primary/20 dark:bg-accent/20 text-primary dark:text-accent text-sm font-bold leading-normal w-fit hover:bg-primary/30 dark:hover:bg-accent/30 transition-colors">
+                                    <span class="truncate">Ver caso de estudio</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Global CTA (from Stitch) -->
+                    <div class="bg-card-light dark:bg-card-dark p-8 md:p-12 rounded-xl text-center flex flex-col items-center gap-4 mt-12 shadow-lg">
+                        <h2 class="text-base dark:text-white text-3xl font-bold">¿Listo para innovar?</h2>
+                        <p class="text-text-light dark:text-text-dark max-w-xl">Impulsemos juntos tu próximo proyecto con soluciones de inteligencia artificial a la medida. Contáctame para una consulta inicial.</p>
+                        <button class="flex mt-4 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+                            <span class="truncate">Hablemos de tu proyecto</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW ESPECIALIDADES DETAILED SECTION (Replacing Areas de Especialización) - Kept as requested by "don't modify" -->
+        <section id="proyectos" class="py-20 bg-background-light dark:bg-background-dark font-display flex flex-col justify-center items-center">
+            <div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1 gap-10 md:gap-16">
+                <!-- PageHeading / Hero -->
+                <div class="flex flex-wrap justify-center text-center gap-3 p-4">
+                    <div class="flex w-full max-w-2xl flex-col items-center gap-3">
+                        <p class="text-[#0d101b] dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Proyectos y casos de estudio</p>
+                        <p class="text-[#4c599a] dark:text-white/70 text-base md:text-lg font-normal leading-normal">Un resumen del alcance y el impacto de los proyectos mostrados, enfocados en la transformación digital para el mercado canario.</p>
+                    </div>
+                </div>
+                <!-- Chips / Filters -->
+                <div class="flex justify-center gap-2 md:gap-3 p-3 flex-wrap">
+                    <div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary/10 dark:bg-accent-cyan/20 px-4">
+                        <p class="text-primary dark:text-accent-cyan text-sm font-medium leading-normal">Todos</p>
+                    </div>
+                    <div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-200/60 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700/80 px-4 transition-colors">
+                        <p class="text-[#0d101b] dark:text-white/90 text-sm font-medium leading-normal">IA Sector Público</p>
+                    </div>
+                    <div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-200/60 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700/80 px-4 transition-colors">
+                        <p class="text-[#0d101b] dark:text-white/90 text-sm font-medium leading-normal">Media Intelligence</p>
+                    </div>
+                    <div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-200/60 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700/80 px-4 transition-colors">
+                        <p class="text-[#0d101b] dark:text-white/90 text-sm font-medium leading-normal">Consultoría</p>
+                    </div>
+                </div>
+                <!-- ImageGrid / Project Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                    <div class="flex flex-col gap-3 group">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300" data-alt="Abstract visualization of data networks for public services optimization" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARiVwuGVBhMrSLg5R0Eib79YUyHTQEs9VYoF9ljwxQ-v7aSGSVJz3WEHaBevJGZokzTFbkXHjo5Mne4Mo3daqOW-V_OUMw3mQfOim7pJTY8IpW-lcrL9v7pal6mzYEak9feWSUUVFgj5o3nf7Ww-M-mXLpF8lGsU06nHIqOhdqOS_EccPpA9DucryLw8Kd2vDWFsdC2k7FeTS9AIB71q2xFgMYQFCPs2a8DpbJb-byOxo9TMNdjNxtfl4IZdIMXtwHYGxOZHt3VqdO");'></div>
+                        <div>
+                            <p class="text-[#0d101b] dark:text-white/90 text-base font-bold leading-normal">Optimización de Servicios Públicos</p>
+                            <p class="text-[#4c599a] dark:text-white/60 text-sm font-normal leading-normal">IA Sector Público</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300" data-alt="Dashboard showing media analysis for brand reputation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCP2uhX3q6IheRnPSW4ufy9zYlFPtzCfrCHU_utyJ_GKTdaNfJT2JZmrhuCoSsobAIxwV6uevp8J6DoSxvEpzW6PwbKKy_xI_wzPDPwI1_x-h1BqIVDbknkqliIHK6jAHQ3ADU-q1_pCcMRKqwybB0VYXgJMEKdbhKiKuygCSmXxb9FmkQ07ycNhvyCsnv3y8bxhfve5R6_rdmL8trOz8uz0kAtj0wBQqb9GZ8Tp4IGd-t4Ig2A6yppyrPPzrSAcwLzJU1GaZTv9VWj");'></div>
+                        <div>
+                            <p class="text-[#0d101b] dark:text-white/90 text-base font-bold leading-normal">Análisis de Medios para Reputación</p>
+                            <p class="text-[#4c599a] dark:text-white/60 text-sm font-normal leading-normal">Media Intelligence</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300" data-alt="Team collaborating on a data-driven digital strategy whiteboard" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1TR9WoroJaWqJNOMinsbzjcYHZ6AZlDd9-BTD0DmuYCuMfwHumZeC87CUD8caCEwLrH9PtwLrTgZer16g4602jX1ANrzUwXxqKM0oGKvZPlrQ_nh8zIwK0fA4m5d5VP0X8og--MK-hHH2bVql-wzE_1Hi1h8WXI1txOBoDR_Z12VzRFlPfkXedh9TScfgt2urWdptAco6u8NfWe5hc77B8fj11fIYAGCz8X9qkrV53D3ZN5-fdToxzyBtAfk3e6hd2SMf2Mj_5hDp");'></div>
+                        <div>
+                            <p class="text-[#0d101b] dark:text-white/90 text-base font-bold leading-normal">Estrategia Digital Basada en Datos</p>
+                            <p class="text-[#4c599a] dark:text-white/60 text-sm font-normal leading-normal">Consultoría</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300" data-alt="Futuristic AI interface for business transformation consulting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBZVRgmTG7KzDKIFocsqWbv-9o7pAT6S2ElN14tkRVlBrVHJOn2RrcL0O7etpCJloZ0S69wDhwDJNr1mfx5BUfMQIPzFpIxhZoTQ35BI4dye6GucmIKysTdqzi2giek3w1VqlEj7S46voTo8EPfzrqGowM5VmFyxJqmN4uouTc7uAAYzAgQlvELWhqdoEvdNoZehY0NOBqYNfbph0vEf83AfLwSgXnl0SmHIPG9KwdhOI3VT98s0owjn9x4q8oi-S7mPIrzFRL514A");'></div>
+                        <div>
+                            <p class="text-[#0d101b] dark:text-white/90 text-base font-bold leading-normal">Consultoría de Transformación AI</p>
+                            <p class="text-[#4c599a] dark:text-white/60 text-sm font-normal leading-normal">Consultoría</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300" data-alt="Sophisticated media intelligence platform on multiple screens" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2yu6rKwsm26Nhr9UAElZ9vH1W-jmrrj7JIdYSGzehD15oDODztn6cv8rGKGqjv3I0_zIeivN32llxEh1qw5IgVoCflE_rOf7cfj1HT6dle0z_C_hL2dgzXwumpes8auaC3pVuGwUMUv85zcEf80XOlIpUkDdi6Hiwova3U3F0Kq_PTQjHXisRi4wckPi3QO0BJiI2uR6XxlzQXgbb8_kQkLsp3QrqG2xpOWzJxWegxVMgazzG2XGLadsrbGqVn7WkCX-atT2Z_f0s");'></div>
+                        <div>
+                            <p class="text-[#0d101b] dark:text-white/90 text-base font-bold leading-normal">Plataforma de Media Intelligence</p>
+                            <p class="text-[#4c599a] dark:text-white/60 text-sm font-normal leading-normal">Media Intelligence</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300" data-alt="Illustration representing AI's role in governmental transparency" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhIQYKl6nUx4OGh8dHyDyOtP_dnxcjs1fb3adb-ONY4KVWcOMHxs5D8-dhhA9VXtkOMnxDNYA5_c3oY839XACnUENDoFpiQekmZQIhvaBF_h7Ny1LnpHjgyTbI78GsmmrrHHMBSTVQSNs4Lq9bg9f2AUnr5Wx0ORrWsE1h3qGHBFwpXqqP4vzuyPstfu11m34OpxtqBU6QoMpfIQbEFUGTS1eqKdGuu99X6gmgRiu0eYiuiT3_ojcSP5KqhcOtOmCr6Ye1fe0prH6W");'></div>
+                        <div>
+                            <p class="text-[#0d101b] dark:text-white/90 text-base font-bold leading-normal">IA para la Transparencia Gubernamental</p>
+                            <p class="text-[#4c599a] dark:text-white/60 text-sm font-normal leading-normal">IA Sector Público</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card / Featured Case Study -->
+                <div class="p-4">
+                    <div class="flex flex-col md:flex-row items-stretch justify-between gap-8 rounded-xl bg-white dark:bg-primary-dark-custom p-6 md:p-8 shadow-lg shadow-slate-200/50 dark:shadow-black/20">
+                        <div class="flex flex-[1.5_1.5_0px] flex-col justify-center gap-4">
+                            <div class="flex flex-col gap-2">
+                                <p class="text-accent-cyan text-sm font-bold tracking-wider uppercase">Caso Destacado</p>
+                                <p class="text-[#0d101b] dark:text-white text-2xl font-bold leading-tight">Transformación Digital del Sector Turístico Canario con IA</p>
+                                <p class="text-[#4c599a] dark:text-white/70 text-base font-normal leading-relaxed">
+                                    Un análisis profundo de cómo la inteligencia artificial revolucionó la toma de decisiones y la experiencia del cliente para una importante cadena hotelera en las Islas Canarias.
+                                </p>
+                            </div>
+                            <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary dark:bg-accent-cyan text-white dark:text-primary-dark-custom text-sm font-bold leading-normal w-fit hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-colors">
+                                <span class="truncate">Ver caso de estudio</span>
+                            </button>
+                        </div>
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1" data-alt="A luxurious hotel reception in the Canary Islands with futuristic data overlays" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnTTNhQHVi9JbKkWiz7Iy_knab90MhnCRlJo2nd_QxsE2HRUC5S9hiWGqAY6T1vXcxTeT5drNteMZBQ0ieGJXuUu1DYy5R2fJ-txm9piukCgrxwb3CHNysgBJm0Vavt56IAxIIWZBq09cn0B54hLcYpkt-I86A3-2vIfAIgJdOojppr86avxP0ZHFtaYQfoRqfyZL4MYwWknCdYiPTVP7JeTk4rTMiHD62XQ8Zh2zeC3NMZMtIlQeuJqxQkxMv-97keHAXP9v_bCfZ");'></div>
+                    </div>
+                </div>
+                <!-- Testimonial Carousel -->
+                <div class="relative w-full overflow-hidden p-4">
+                    <div class="flex transition-transform duration-500 ease-in-out">
+                        <div class="w-full flex-shrink-0 flex justify-center">
+                            <div class="w-full max-w-2xl text-center space-y-4">
+                                <p class="text-xl md:text-2xl italic text-[#0d101b] dark:text-white/90">"La implementación de su sistema de IA ha sido un antes y un después para nuestra gestión hotelera. Los resultados superaron todas las expectativas."</p>
+                                <div class="flex flex-col">
+                                    <span class="font-bold text-[#0d101b] dark:text-white">Elena Rodríguez</span>
+                                    <span class="text-sm text-[#4c599a] dark:text-white/60">Directora de Operaciones, Hoteles Sol y Mar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 flex justify-center gap-2 py-2">
+                        <button class="size-2 rounded-full bg-primary dark:bg-accent-cyan"></button>
+                        <button class="size-2 rounded-full bg-slate-300 dark:bg-slate-700"></button>
+                        <button class="size-2 rounded-full bg-slate-300 dark:bg-slate-700"></button>
+                    </div>
+                </div>
+                <!-- CTA Block -->
+                <div class="w-full p-4">
+                    <div class="rounded-xl bg-primary-dark-custom dark:bg-slate-900 flex flex-col items-center justify-center gap-6 p-10 md:p-16 text-center">
+                        <h2 class="text-3xl font-black leading-tight tracking-tighter text-white">¿Te gustaría trabajar en un proyecto similar?</h2>
+                        <p class="max-w-xl text-lg text-white/70">Conversemos sobre tus ideas y cómo la inteligencia artificial puede impulsar tus objetivos. Estoy aquí para ayudarte a navegar el futuro digital.</p>
+                        <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-accent-cyan text-primary-dark-custom text-base font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-colors">
+                            <span>Hablemos de tu proyecto</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="en-medios" class="py-20 bg-white scroll-mt-20 border-t border-gray-200">
+            <div class="container mx-auto px-4 md:px-10">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">
+                    En medios
+                </h2>
+                <p class="text-lg text-slate-600">
+                    Apariciones en Televisión Española y otros medios donde Enrique explica cómo usa la IA y el análisis de redes para entender el voto y la opinión pública.
+                </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Vídeo MMI 1 -->
+                <article class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 flex flex-col gap-4">
+                    <div class="aspect-video rounded-lg overflow-hidden bg-slate-900">
+                    <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/watch?v=x9hsIskdGE8&list=PLN667R08EHKmDQdWLnWn2MvGbc_D34tIP&index=3"
+                        title="El análisis de redes sociales, herramienta de proyección de voto electoral"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                    ></iframe>
+                    </div>
+                    <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">
+                        El análisis de redes sociales, herramienta de proyección de voto electoral
+                    </h3>
+                    <p class="text-sm text-slate-500 mb-1">
+                        TVE Canarias · Debate electoral · aprox. 3 minutos
+                    </p>
+                    <p class="text-sm text-slate-600">
+                        Enrique explica cómo el análisis de redes sociales permite proyectar resultados electorales
+                        con márgenes de error similares a las encuestas tradicionales.
+                    </p>
+                    </div>
+                </article>
+
+                <!-- Vídeo MMI 2 -->
+                <article class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 flex flex-col gap-4">
+                    <div class="aspect-video rounded-lg overflow-hidden bg-slate-900">
+                    <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/watch?v=EO6-tSHjoz0&list=PLN667R08EHKmDQdWLnWn2MvGbc_D34tIP&index=7"
+                        title="Escucha social y seguimiento de redes sociales, alternativa a la investigación cualitativa"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                    ></iframe>
+                    </div>
+                    <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">
+                        Escucha social y seguimiento de redes, alternativa a la investigación cualitativa
+                    </h3>
+                    <p class="text-sm text-slate-500 mb-1">
+                        TVE Canarias · Mesa de análisis · aprox. 1 minuto
+                    </p>
+                    <p class="text-sm text-slate-600">
+                        Aquí Enrique compara la escucha social con la investigación cualitativa clásica y explica
+                        por qué las redes ayudan a entender el “por qué” detrás de los datos.
+                    </p>
+                    </div>
+                </article>
+                </div>
+            </div>
+            </section>
+            <section id="conferencias" class="py-20 bg-dark-bg text-white scroll-mt-20">
+                <div class="container mx-auto px-4 md:px-10">
+                    <div class="max-w-3xl mb-10">
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+                        IA y transformación del sector público
+                    </h2>
+                    <p class="text-lg text-gray-300">
+                        Sesiones prácticas y conferencias donde Enrique acompaña a administraciones públicas
+                        en la adopción responsable de la inteligencia artificial.
+                    </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-[2fr,1.2fr] gap-10 items-start">
+                    <div class="bg-black rounded-xl overflow-hidden aspect-video border border-gray-700">
+                        <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/watch?v=1SKhTJouw-Y"
+                        title="Mentoría sobre IA en administración pública - Fundación Emprende"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        ></iframe>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold">
+                        Mentoría sobre IA para el Ayuntamiento de Ingenio
+                        </h3>
+                        <p class="text-sm text-gray-400">
+                        Fundación Emprende Canarias · GOPLAB Cabildo de Gran Canaria · Sesión de mentoría
+                        </p>
+                        <p class="text-base text-gray-200">
+                        En esta sesión, Enrique acompaña a cargos públicos y técnicos en el uso de herramientas
+                        como ChatGPT y Claude para mejorar la gestión diaria de la administración:
+                        desde expedientes hasta informes.
+                        </p>
+                        <p class="text-base text-gray-200">
+                        El foco está en casos de uso reales, decisiones más informadas y un aterrizaje
+                        muy práctico de la IA en el sector público canario.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                </section>
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="container mx-auto px-4 md:px-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded text-white flex items-center justify-center">
+                            <span class="material-symbols-outlined">hub</span>
+                        </div>
+                        <span class="font-display font-bold text-lg text-slate-900">Enrique Farez</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6">
+                        Consultor experto en IA y Media Intelligence. Ayudando a líderes a navegar la complejidad tecnológica.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Explorar</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><a href="#inicio" class="hover:text-primary">Inicio</a></li>
+                        <li><a href="#sobre-mi" class="hover:text-primary">Sobre mí</a></li>
+                        <li><a href="#proyectos" class="hover:text-primary">Proyectos</a></li>
+                        <li><a href="#areas-especializacion" class="hover:text-primary">Especialidades</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><a href="#areas-especializacion" class="hover:text-primary">Consultoría IA</a></li>
+                        <li><a href="#areas-especializacion" class="hover:text-primary">Media Intelligence</a></li>
+                        <li><a href="#areas-especializacion" class="hover:text-primary">Estrategia de Datos</a></li>
+                        <li><a href="#areas-especializacion" class="hover:text-primary">Formación Ejecutiva</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><a href="#" class="hover:text-primary">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-primary">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-primary">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-slate-500">© 2024 Enrique Farez. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors" aria-label="Twitter">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        // Toggle menu visibility
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        // Handle all anchor clicks for smooth scrolling and to prevent AI Studio connection error
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (menu && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                    }
+                    
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    <!-- Schema principal de Enrique + vídeos conectados al mismo Person -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+            "@type": "Person",
+            "@id": "https://enriquefarez.com/#enrique-farez",
+            "name": "Enrique Fárez",
+            "jobTitle": "Consultor en IA, sector público y media intelligence",
+            "url": "https://enriquefarez.com/",
+            "image": "https://i.ytimg.com/vi/IipT_qlkbg0/maxresdefault.jpg",
+            "sameAs": [
+                "https://mmianalytics.es/",
+                "https://fundacionemprende.org/",
+                "https://grupoicc.es/",
+                "https://www.equaltenders.com/"
+            ]
+            },
+
+            {
+            "@type": "VideoObject",
+            "@id": "https://enriquefarez.com/#video-mmi-proyeccion-voto",
+            "name": "El análisis de redes sociales, herramienta de proyección de voto electoral",
+            "description": "Enrique Fárez explica cómo el análisis de redes sociales permite proyectar resultados electorales con márgenes de error similares a las encuestas tradicionales, usando big data y menciones en redes.",
+            "thumbnailUrl": "https://i.ytimg.com/vi/x9hsIskdGE8/hqdefault.jpg",
+            "uploadDate": "2019-01-01",
+            "duration": "PT3M9S",
+            "embedUrl": "https://www.youtube.com/embed/x9hsIskdGE8",
+            "publisher": {
+                "@type": "Organization",
+                "name": "TVE Canarias"
+            },
+            "author": {
+                "@type": "Person",
+                "@id": "https://enriquefarez.com/#enrique-farez"
+            }
+            },
+
+            {
+            "@type": "VideoObject",
+            "@id": "https://enriquefarez.com/#video-mmi-escucha-social",
+            "name": "Escucha social y seguimiento de redes sociales, alternativa a la investigación cualitativa",
+            "description": "Enrique Fárez compara la escucha social y el seguimiento de redes con la investigación cualitativa clásica, explicando cómo ayudan a entender los porqués detrás de los datos electorales.",
+            "thumbnailUrl": "https://i.ytimg.com/vi/EO6-tSHjoz0/hqdefault.jpg",
+            "uploadDate": "2019-01-01",
+            "duration": "PT1M6S",
+            "embedUrl": "https://www.youtube.com/embed/EO6-tSHjoz0",
+            "publisher": {
+                "@type": "Organization",
+                "name": "TVE Canarias"
+            },
+            "author": {
+                "@type": "Person",
+                "@id": "https://enriquefarez.com/#enrique-farez"
+            }
+            },
+
+            {
+            "@type": "VideoObject",
+            "@id": "https://enriquefarez.com/#video-fundacion-ia-sector-publico",
+            "name": "Mentoría sobre IA para el Ayuntamiento de Ingenio",
+            "description": "Sesión práctica dirigida por Enrique Fárez, presidente de la Fundación Emprende Canarias, sobre el uso de herramientas de inteligencia artificial en la administración pública.",
+            "thumbnailUrl": "https://i.ytimg.com/vi/1SKhTJouw-Y/hqdefault.jpg",
+            "uploadDate": "2024-01-01",
+            "duration": "PT2M3S",
+            "embedUrl": "https://www.youtube.com/embed/1SKhTJouw-Y",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Fundación Emprende Canarias"
+            },
+            "author": {
+                "@type": "Person",
+                "@id": "https://enriquefarez.com/#enrique-farez"
+            }
+            }
+        ]
+        }
+    </script>
+    <!--
+        Schema VideoObject del vídeo de TVE.
+        Se conecta con el Schema Person de Enrique mediante @id (https://enriquefarez.com/#enrique-farez)
+        para que todas las apariciones en vídeo sumen autoridad a la misma entidad.
+    -->
+
+
+</body>
+</html>
